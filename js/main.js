@@ -350,27 +350,21 @@ function initEventListeners() {
 // Initialize on DOM Load
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 Zero Coin - Initializing...');
-    
     initMobileMenu();
     initSmoothScroll();
     initEventListeners();
     initFAQ();
     initNavbarScroll();
     initScrollAnimations();
-    
-    console.log('✅ Zero Coin - Ready!');
-    console.log('Contract Address:', ZERO_TOKEN.address);
 });
 
 // ===================================
 // Detect MetaMask
 // ===================================
 window.addEventListener('load', () => {
-    if (window.ethereum) {
-        console.log('✅ Web3 wallet detected');
-    } else {
-        console.log('⚠️ No Web3 wallet detected. Please install MetaMask.');
+    // MetaMask detection (silent for production)
+    if (!window.ethereum && window.location.hostname !== 'localhost') {
+        // Could add optional user notification here
     }
 });
 
@@ -378,9 +372,8 @@ window.addEventListener('load', () => {
 // Handle visibility change (for animations)
 // ===================================
 document.addEventListener('visibilitychange', () => {
-    if (!document.hidden) {
-        console.log('👋 Welcome back!');
-    }
+    // Page visibility change handler
+    // Reserved for future analytics or pause/resume features
 });
 
 // Export functions for potential external use
