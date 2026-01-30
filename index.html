@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Coin (ZERO) | From Zero to Hero</title>
+    <meta name="description" content="The last frontier for financial freedom. A decentralized movement for those who missed Bitcoin.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow-overlay"></div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Zero Coin Logo" id="header-logo" onerror="this.style.display='none'; document.getElementById('text-logo').style.display='block'">
+                <span id="text-logo" style="display:none;">ZERO COIN</span>
+            </div>
+            <nav>
+                <a href="#about">About</a>
+                <a href="#tokenomics">Tokenomics</a>
+                <a href="#roadmap">Roadmap</a>
+                <a href="https://bscscan.com/token/0xb918b6ad21211B075a0761b87b09561D2A5e5a1f" target="_blank" class="btn-small"><i class="fas fa-search"></i> BscScan</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1 class="glitch" data-text="FROM ZERO TO HERO">FROM ZERO TO HERO</h1>
+            <p class="subtitle">The Last Frontier for Financial Freedom.</p>
+            <p class="description">Missed Bitcoin in 2010? Missed Doge in 2020? Don't miss <strong>ZERO</strong> in 2026.</p>
+            
+            <div class="cta-group">
+                <button id="addTokenBtn" class="btn-primary"><i class="fas fa-wallet"></i> Add to MetaMask</button>
+                <a href="#contract" class="btn-secondary">View Contract</a>
+            </div>
+
+            <div class="contract-card" id="contract">
+                <span>CONTRACT ADDRESS (BEP-20)</span>
+                <div class="address-box">
+                    <code id="contractAddress">0xb918b6ad21211B075a0761b87b09561D2A5e5a1f</code>
+                    <button onclick="copyContract()"><i class="fas fa-copy"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats">
+        <div class="container stats-grid">
+            <div class="stat-box">
+                <h3>Total Supply</h3>
+                <p>1,000,000,000</p>
+                <span>ZERO</span>
+            </div>
+            <div class="stat-box">
+                <h3>Burn Rate</h3>
+                <p>5%</p>
+                <span>Per Transaction</span>
+            </div>
+            <div class="stat-box">
+                <h3>Network</h3>
+                <p>BSC</p>
+                <span>Binance Smart Chain</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>Why Zero?</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Hyper-Deflationary</h3>
+                    <p>Every transaction burns 5% of the amount. The more ZERO is used, the scarcer it becomes. Supply only goes down.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users"></i>
+                    <h3>Proof-of-Hope</h3>
+                    <p>A community-driven movement. We are not just a token; we are a second chance for everyone who wants to win.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure & Simple</h3>
+                    <p>Built on BSC for low fees and high speed. Standard BEP-20 protocol with no hidden backdoors.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Fair Launch</h3>
+                    <p>No VC funding. No pre-sale for insiders. Everyone starts from Zero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tokenomics">
+        <div class="container">
+            <h2>Tokenomics</h2>
+            <div class="tokenomics-wrapper">
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <span class="dot liquidity"></span>
+                        <div>
+                            <strong>70% Liquidity</strong>
+                            <p>Locked in DEX (PancakeSwap)</p>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="dot community"></span>
+                        <div>
+                            <strong>20% Community</strong>
+                            <p>Marketing, Airdrops & Rewards</p>
+                        </div>
+                    </div>
+                    <div class="legend-item">
+                        <span class="dot reserve"></span>
+                        <div>
+                            <strong>10% Reserve</strong>
+                            <p>Future Burns & Development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <h2>Roadmap</h2>
+            <div class="timeline">
+                <div class="milestone completed">
+                    <div class="marker">Phase 1</div>
+                    <div class="content">
+                        <h3>Inception</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Concept & Branding</li>
+                            <li><i class="fas fa-check"></i> Smart Contract Deploy</li>
+                            <li><i class="fas fa-check"></i> Website Launch</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="milestone active">
+                    <div class="marker">Phase 2</div>
+                    <div class="content">
+                        <h3>Launch</h3>
+                        <ul>
+                            <li><i class="fas fa-spinner fa-spin"></i> Liquidity Pool Creation</li>
+                            <li><i class="fas fa-circle"></i> Social Media Campaign</li>
+                            <li><i class="fas fa-circle"></i> 1,000 Holders Goal</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="milestone">
+                    <div class="marker">Phase 3</div>
+                    <div class="content">
+                        <h3>Expansion</h3>
+                        <ul>
+                            <li><i class="fas fa-circle"></i> CoinGecko / CMC Listing</li>
+                            <li><i class="fas fa-circle"></i> Massive Burn Event</li>
+                            <li><i class="fas fa-circle"></i> Exchange Listings</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="socials">
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">&copy; 2026 Zero Coin Project. All rights reserved.</p>
+            <p class="disclaimer">Cryptocurrency investments are subject to high market risk. DYOR.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
