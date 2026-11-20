@@ -1,34 +1,54 @@
-// Copy Contract Address
+const CONTRACT_ADDRESS = '0xb918b6ad21211B075a0761b87b09561D2A5e5a1f';
+
 function copyContract() {
-    const address = document.getElementById("contractAddress").innerText;
-    navigator.clipboard.writeText(address).then(() => {
-        alert("Contract address copied!");
-    });
+  const label = document.getElementById('copyLabel');
+  navigator.clipboard.writeText(CONTRACT_ADDRESS).then(() => {
+    if (label) {
+      label.textContent = 'Copied';
+      setTimeout(() => { label.textContent = 'Copy'; }, 1800);
+    }
+  });
 }
 
-// Add to MetaMask
-document.getElementById("addTokenBtn").addEventListener("click", async () => {
-    if (window.ethereum) {
-        try {
-            await window.ethereum.request({
-                method: 'wallet_watchAsset',
-                params: {
-                    type: 'ERC20',
-                    options: {
-                        address: '0xb918b6ad21211B075a0761b87b09561D2A5e5a1f',
-                        symbol: 'ZERO',
-                        decimals: 18,
-                        image: 'https://taffapereira.github.io/zerocoin/assets/images/logo.png', // Fallback URL
-                    },
-                },
-            });
-        } catch (error) {
-            console.error(error);
+async function addZeroToMetaMask() {
+  if (!window.ethereum) {
+    alert('MetaMask not detected. Please install MetaMask to add ZERO.');
+    return;
+  }
+  try {
+    await window.ethereum.request({
+      method: 'wallet_watchAsset',
+      params: {
+        type: 'ERC20',
+        options: {
+          address: CONTRACT_ADDRESS,
+          symbol: 'ZERO',
+          decimals: 18,
+          image: 'https://zerocoin.tech/assets/images/logo.svg'
         }
-    } else {
-        alert("Please install MetaMask!");
-    }
-});
+      }
+    });
+  } catch (err) {
+    console.error('MetaMask wallet_watchAsset failed:', err);
+  }
+}
 
-// Glitch Effect (Optional, pure CSS handles most)
-console.log("Zero Coin Landing Loaded. Ready for Moon.");
+document.getElementById('addTokenBtn')?.addEventListener('click', addZeroToMetaMask);
+document.getElementById('headerAddTokenBtn')?.addEventListener('click', addZeroToMetaMask);
+
+const menuBtn = document.getElementById('mobileMenuBtn');
+const mobileNav = document.getElementById('mobileNav');
+if (menuBtn && mobileNav) {
+  menuBtn.addEventListener('click', () => {
+    const isOpen = !mobileNav.hidden;
+    mobileNav.hidden = isOpen;
+    menuBtn.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  mobileNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNav.hidden = true;
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
